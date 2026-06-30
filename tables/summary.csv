@@ -1,0 +1,9 @@
+metric,value
+finishers,31912.0
+negative_split_pct,2.52
+even_within_2pct,3.85
+median_slowdown_pct,14.03
+men_median_slowdown,14.76
+women_median_slowdown,13.36
+sub3_median_slowdown,5.27
+over4h_median_slowdown,21.65
