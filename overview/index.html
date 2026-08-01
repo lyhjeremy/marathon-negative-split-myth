@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>The Negative-Split Myth — 31,912 runners, and 2.5% of them did it</title>
+<meta name="description" content="Every coach says run the second half faster. Across a full Boston Marathon field of 31,912 finishers, 2.5% managed it and the median runner slowed 14%." />
+<meta name="theme-color" content="#FBF8F1" />
+<meta property="og:title" content="The Negative-Split Myth" />
+<meta property="og:description" content="The most repeated piece of marathon advice there is, measured against an entire Boston field. 2.5% of runners actually do it." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lyhjeremy.github.io/marathon-negative-split-myth/overview/" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --paper: #FBF8F1;
+    --card: #FFFFFF;
+    --plate: #FFFFFF;
+    --ink: #1a1a2e;
+    --ink2: #3d3d55;
+    --muted: #6B7280;
+    --rule: #E5DCC7;
+    --accent: #C33E60;
+    --accent2: #D4A537;
+    --link: #15868C;
+    --serif: Georgia, 'Iowan Old Style', 'Times New Roman', serif;
+    --sans: 'Source Sans 3', -apple-system, system-ui, sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', monospace;
+    --shadow: 0 1px 2px rgba(26,26,46,.05), 0 10px 34px rgba(26,26,46,.07);
+    --spine:  92px;
+    --col:    min(100% - 2.6rem, 62rem);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #14141f;
+      --card: #1c1c2a;
+      --plate: #f7f4ec;
+      --ink: #F2EFE6;
+      --ink2: #C9C4B6;
+      --muted: #918B7D;
+      --rule: #33313f;
+      --accent: #E8748F;
+      --accent2: #E3BC5E;
+      --link: #3FB4B9;
+      --shadow: 0 1px 2px rgba(0,0,0,.32), 0 10px 34px rgba(0,0,0,.4);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--serif); font-size: clamp(17px, 0.55rem + 0.6vw, 19.5px);
+    line-height: 1.68; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: var(--link); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  strong { font-weight: 700; color: var(--ink); }
+  code { font-family: var(--mono); font-size: .86em;
+         background: color-mix(in srgb, var(--ink) 7%, transparent);
+         padding: .12em .38em; border-radius: 4px; }
+  .wrap { width: var(--col); margin: 0 auto; }
+
+  .eyebrow { font-family: var(--mono); font-weight: 600; font-size: 11.5px;
+             letter-spacing: .17em; text-transform: uppercase; color: var(--muted);
+             margin: 0 0 14px; }
+
+  .masthead { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; padding: 30px 0 0; }
+  .logo { font-family: var(--sans); font-weight: 800; font-size: 21px;
+          letter-spacing: -.02em; display: flex; align-items: center; gap: 9px; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); flex: none; }
+  .tagline { font-size: 15px; color: var(--ink2); font-family: var(--sans); }
+
+  .hero { padding: 44px 0 54px; }
+  .kicker { font-family: var(--sans); font-size: clamp(18px, 2.1vw, 23px); font-weight: 600;
+            color: var(--muted); margin: 0 0 8px; letter-spacing: -.01em; }
+  .hero h1 { font-family: var(--sans); font-size: clamp(37px, 6vw, 72px); font-weight: 800;
+             letter-spacing: -.035em; line-height: 1.04; margin: 0; max-width: 17ch; }
+  .hero-sub { margin: 24px 0 0; font-size: 1.06em; color: var(--ink2); max-width: 60ch; }
+
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; align-items: center; }
+  .btn { display: inline-block; padding: 13px 26px; border-radius: 8px;
+         font-family: var(--sans); font-weight: 700; font-size: 16px;
+         text-decoration: none; border: 1px solid var(--ink); transition: transform .15s ease; }
+  .btn:hover { transform: translateY(-1px); }
+  .btn-primary { background: var(--ink); color: var(--paper); }
+  .textlink { font-family: var(--sans); font-size: 16px; font-weight: 600; color: var(--ink2);
+              text-decoration: underline; text-underline-offset: 4px;
+              text-decoration-thickness: 1px; }
+  .textlink:hover { color: var(--ink); }
+
+  .claims { display: grid; grid-template-columns: 1fr; gap: 0 52px; margin: 50px 0 0; }
+  @media (min-width: 760px) { .claims { grid-template-columns: 1fr 1fr; } }
+  .claim { padding: 18px 0 20px; border-top: 1px solid var(--rule); }
+  .claim:first-child, .claim:nth-child(2) { border-top: 2px solid var(--ink); }
+  @media (max-width: 759px) { .claim:nth-child(2) { border-top: 1px solid var(--rule); } }
+  .claim .n { font-family: var(--sans); font-weight: 800; font-size: 40px; line-height: 1.05;
+              color: var(--accent); letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+  .claim h3 { margin: 0 0 6px; }
+  .claim p { margin: 9px 0 0; font-size: 15.5px; color: var(--ink2); line-height: 1.5;
+             font-family: var(--sans); }
+
+  .route { position: relative; padding-bottom: 30px; }
+  .route::before { content: ""; position: absolute; left: calc(var(--spine) / 2); top: 8px;
+                   bottom: 80px; width: 2px; background: var(--rule); }
+  .stop { position: relative; padding: 0 0 76px var(--spine); }
+  .stop::before { content: ""; position: absolute; left: calc(var(--spine) / 2 - 7px); top: 7px;
+                  width: 16px; height: 16px; border-radius: 50%;
+                  background: var(--paper); border: 2px solid var(--ink); box-sizing: border-box; }
+  .stop--key::before { background: var(--accent); border-color: var(--accent); }
+  .stop--warn::before { background: var(--accent2); border-color: var(--accent2); }
+  .stop--end::before { background: var(--ink); }
+
+  h2 { font-family: var(--sans); font-size: clamp(27px, 3.7vw, 38px); font-weight: 800;
+       letter-spacing: -.027em; line-height: 1.13; margin: 12px 0 16px; max-width: 19ch; }
+  h3 { font-family: var(--sans); font-size: 17px; font-weight: 700; margin: 0 0 7px;
+       letter-spacing: -.012em; }
+  .stop p { margin: 0 0 17px; max-width: 60ch; color: var(--ink2); }
+
+  .bignum { font-family: var(--sans); font-weight: 800; font-size: clamp(74px, 10vw, 128px);
+            line-height: .86; letter-spacing: -.05em; margin: 6px 0 4px; color: var(--accent);
+            font-variant-numeric: tabular-nums; }
+  .bignum-note { font-family: var(--sans); font-size: 16px; color: var(--muted); margin: 0 0 20px; }
+
+  /* A white-background chart would glow in dark mode; the plate makes it read
+     as a deliberately printed page instead. */
+  figure { margin: 28px 0 0; }
+  .plate { background: var(--plate); border: 1px solid var(--rule); border-radius: 10px;
+           padding: 14px; box-shadow: var(--shadow); overflow: hidden; }
+  .plate img { border-radius: 4px; }
+  .plate--flush { padding: 0; }
+  .shot { border-radius: 10px; border: 1px solid var(--rule); box-shadow: var(--shadow);
+          overflow: hidden; background: var(--card); }
+  /* min() so the cap never exceeds the column on a phone */
+  .shot--narrow { max-width: min(430px, 100%); }
+  figcaption { margin-top: 11px; font-family: var(--sans); font-size: 14.5px;
+               color: var(--muted); line-height: 1.5; }
+  .panels { display: grid; grid-template-columns: repeat(auto-fit, minmax(258px, 1fr));
+            gap: 22px; margin-top: 28px; }
+  .panels figure { margin: 0; }
+
+  .pull { margin: 30px 0 0; padding: 20px 25px; border-left: 3px solid var(--accent);
+          background: color-mix(in srgb, var(--accent) 7%, transparent);
+          border-radius: 0 8px 8px 0; }
+  .pull p { margin: 0 0 9px; color: var(--ink); max-width: none; }
+  .pull p:last-of-type { margin: 0; }
+  .pull .who { font-family: var(--mono); font-size: 11px; letter-spacing: .12em;
+               text-transform: uppercase; color: var(--muted); display: block; margin-top: 9px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(238px, 1fr));
+          gap: 1px; margin-top: 28px; background: var(--rule);
+          border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; }
+  .cell { background: var(--paper); padding: 22px 20px; }
+  .cell p { font-size: 15px; margin: 0; color: var(--ink2); max-width: none;
+            line-height: 1.55; font-family: var(--sans); }
+
+  /* results tables: scroll inside their own box, never the page */
+  .tablewrap { margin-top: 26px; overflow-x: auto; border: 1px solid var(--rule);
+               border-radius: 10px; background: var(--card); }
+  table { border-collapse: collapse; width: 100%; min-width: 480px;
+          font-family: var(--sans); font-size: 15.5px; }
+  th, td { padding: 12px 16px; text-align: left; border-bottom: 1px solid var(--rule); }
+  th { font-family: var(--mono); font-size: 11px; letter-spacing: .1em;
+       text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  td { color: var(--ink2); font-variant-numeric: tabular-nums; }
+  tr:last-child td { border-bottom: 0; }
+  .win td { color: var(--ink); font-weight: 700;
+            background: color-mix(in srgb, var(--accent) 8%, transparent); }
+
+  /* real terminal output, quoted verbatim */
+  .term { margin-top: 26px; background: #14141f; color: #e6e3da; border-radius: 10px;
+          padding: 18px 20px; overflow-x: auto; box-shadow: var(--shadow);
+          border: 1px solid #2a2a3a; }
+  .term pre { margin: 0; font-family: var(--mono); font-size: 13px; line-height: 1.62;
+              white-space: pre; }
+  .term .c { color: #9aa08f; }
+  .term .g { color: #7fd18f; }
+  .term .y { color: #E3BC5E; }
+
+  .specs { margin-top: 26px; border-top: 1px solid var(--rule); }
+  .spec { display: grid; grid-template-columns: 1fr; gap: 2px;
+          padding: 14px 0; border-bottom: 1px solid var(--rule); }
+  @media (min-width: 700px) { .spec { grid-template-columns: 178px 1fr; gap: 24px; } }
+  .spec dt { font-family: var(--mono); font-size: 11.5px; letter-spacing: .1em;
+             text-transform: uppercase; color: var(--muted); padding-top: 4px; }
+  .spec dd { margin: 0; font-size: 16px; color: var(--ink2); font-family: var(--sans); }
+
+  .close { padding: 6px 0 80px var(--spine); position: relative; }
+  .close h2 { max-width: 20ch; }
+  footer { border-top: 1px solid var(--rule); padding: 28px 0 60px;
+           font-family: var(--sans); font-size: 14.5px; color: var(--muted); }
+  footer a { color: var(--ink2); }
+  footer p { margin: 0 0 8px; }
+
+  @media (max-width: 640px) {
+    :root { --spine: 38px; }
+    .hero { padding: 36px 0 46px; }
+    .stop { padding-bottom: 58px; }
+    .plate { padding: 9px; }
+    .term { padding: 14px 14px; }
+    .term pre { font-size: 11.5px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .btn { transition: none; }
+  }
+
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="masthead">
+    <div class="logo"><span class="dot" aria-hidden="true"></span>The Negative-Split Myth</div>
+    <div class="tagline">31,912 finishers, one piece of advice</div>
+  </header>
+
+  <section class="hero">
+    <p class="kicker">Every coach tells you to run the second half faster.</p>
+    <h1>Out of a whole Boston field, 795 people did.</h1>
+
+    <p class="hero-sub">
+      The negative split is the most repeated piece of marathon wisdom there is.
+      It is also, for almost everyone, a thing that does not happen. I took the
+      official timing-mat splits for the entire <strong>2014 Boston Marathon</strong>
+      and cut every runner's race in half. <strong>2.5%</strong> of the field came
+      home faster than they went out. The median runner's second half was
+      <strong>14% slower</strong> than the first.
+    </p>
+
+    <div class="cta-row">
+      <a class="btn btn-primary" href="../">Read the short version</a>
+      <a class="textlink" href="https://github.com/lyhjeremy/marathon-negative-split-myth">or the code and data</a>
+    </div>
+
+    <div class="claims">
+      <div class="claim">
+        <div class="n">2.5%</div>
+        <p>of finishers ran a genuine negative split. Another 4% or so held within
+           2% of even pace. The remaining ~94% slowed down.</p>
+      </div>
+      <div class="claim">
+        <div class="n">+14%</div>
+        <p>median second-half slowdown across the field. Not a tail of blow-ups
+           pulling an average around — the middle of the distribution.</p>
+      </div>
+      <div class="claim">
+        <div class="n">4.6%</div>
+        <p>median slowdown for the 2:00–2:30 finishers. Even pacing is what the
+           fast runners are doing differently.</p>
+      </div>
+      <div class="claim">
+        <div class="n">26.8%</div>
+        <p>median slowdown for the 5:00–6:00 finishers. Nearly six times the
+           fade of the front of the field.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="wrap">
+<div class="route">
+
+  <section class="stop">
+    <p class="eyebrow">Start · the question</p>
+    <h2>Good advice, or advice nobody can take?</h2>
+    <p>
+      Hold back early, finish faster, run your best time. Every training plan
+      says it. The advice is sound, and the physiology behind it is real. What
+      I wanted was the other number, the one nobody quotes: out of thousands of
+      ordinary runners on an ordinary race day, <strong>how many actually do
+      it?</strong>
+    </p>
+    <p>
+      Boston publishes timing-mat splits for every finisher, which makes the
+      question answerable rather than arguable. Each runner's race splits cleanly
+      into the time to the half-marathon mat and the time from that mat to the
+      line. If the second number is smaller, that is a negative split. No
+      modelling, no adjustment, just subtraction across an entire field.
+    </p>
+  </section>
+
+  <section class="stop stop--key">
+    <p class="eyebrow">↓ the answer</p>
+    <h2>Almost nobody speeds up</h2>
+
+    <div class="bignum">2.5%</div>
+    <p class="bignum-note">of 31,912 finishers ran the second half faster than the first.</p>
+
+    <p>
+      Roughly another 4% paced within 2% of even, which is close enough to call
+      it flat. Everyone else — about <strong>94% of the field</strong> — gave
+      time back. This is not a story about a few people blowing up. It is what
+      the marathon does to nearly everybody who runs one.
+    </p>
+    <figure>
+      <div class="plate">
+        <img width="1500" height="840" src="../figures/02_split_categories.png" fetchpriority="high"
+          alt="Bar chart of pacing categories across the field: a small negative-split bar at 2.5%, a slightly larger even-pace bar, and an overwhelming positive-split bar covering about 94% of finishers." />
+      </div>
+      <figcaption>Three categories, one of which contains almost the whole race.</figcaption>
+    </figure>
+    <figure>
+      <div class="plate">
+        <img width="1600" height="919" src="../figures/01_slowdown_distribution.png" loading="lazy"
+          alt="Histogram of each runner's second-half slowdown. The entire distribution sits to the right of the zero line, peaking around a 12 to 15 percent slowdown with a long tail out past 40 percent." />
+      </div>
+      <figcaption>
+        The whole distribution sits on the slow side of even. The peak is not at
+        zero, it is at about 12–15% slower.
+      </figcaption>
+    </figure>
+  </section>
+
+  <section class="stop">
+    <p class="eyebrow">↓ who it separates</p>
+    <h2>Even pacing is a symptom of being fast</h2>
+    <p>
+      Split the field by finish time and the slowdown grows almost monotonically
+      from front to back. The 2:00–2:30 group loses about <strong>4.6%</strong>
+      in the back half. The 5:00–6:00 group loses <strong>26.8%</strong>. The
+      curve barely moves across the first two brackets, then steepens all the way
+      to the end of the field.
+    </p>
+    <p>
+      Which way the causation runs is worth being careful about. Even pacing
+      almost certainly helps, but a lot of this gap is simply that fitter runners
+      are further from their limit at halfway. The chart shows the association;
+      it cannot separate the two on its own.
+    </p>
+    <figure>
+      <div class="plate">
+        <img width="1600" height="919" src="../figures/03_slowdown_by_finish.png" loading="lazy"
+          alt="Line chart of median second-half slowdown by finish-time bracket, rising from about 4.6 percent for 2 to 2.5 hour finishers to about 26.8 percent for 5 to 6 hour finishers." />
+      </div>
+      <figcaption>Median slowdown by finish bracket. Flat at the front, steep at the back.</figcaption>
+    </figure>
+  </section>
+
+  <section class="stop">
+    <p class="eyebrow">↓ a smaller gap</p>
+    <h2>Women paced slightly more evenly</h2>
+    <p>
+      A median slowdown of about <strong>13.4%</strong> against <strong>14.8%</strong>
+      for men. It is a real gap and it points the same way as other published
+      work on the question, but it is small next to the ability effect above.
+      Worth reporting; not worth a headline.
+    </p>
+    <figure>
+      <div class="plate">
+        <img width="1300" height="840" src="../figures/04_by_gender.png" loading="lazy"
+          alt="Bar chart comparing median second-half slowdown for men and women, about 14.8 percent against 13.4 percent, alongside the share of each group running a negative split." />
+      </div>
+      <figcaption>Median slowdown by gender, with each group's negative-split share alongside.</figcaption>
+    </figure>
+  </section>
+
+  <section class="stop stop--warn">
+    <p class="eyebrow">↓ what this cannot tell you</p>
+    <h2>One race, one day, one course</h2>
+    <p>
+      This is a single edition of a single marathon, and Boston is not a neutral
+      course. It drops sharply for the first few miles and puts its hills between
+      16 and 21 miles, which is close to the worst possible arrangement for
+      holding an even split. Some of the 14% is the course rather than the runner.
+    </p>
+    <p>
+      Boston is also a qualifying race, so this field is faster and more
+      experienced than a typical big-city marathon. If anything that biases
+      <em>toward</em> even pacing. A general-entry field would likely fade harder,
+      not less.
+    </p>
+    <p>
+      What survives those caveats is the shape rather than the exact number. The
+      lopsidedness is enormous, it points the same way in every field that has
+      been looked at, and no plausible course correction moves 2.5% anywhere near
+      half.
+    </p>
+  </section>
+
+  <section class="stop">
+    <p class="eyebrow">↓ so what</p>
+    <h2>The useful reading is the reverse one</h2>
+    <p>
+      It would be easy to take this as "negative splitting is a myth, stop
+      trying." That is the wrong lesson. The runners who came closest to even
+      pacing are the ones who ran fastest, and the error the field makes is
+      overwhelmingly in one direction.
+    </p>
+    <div class="pull">
+      <p>Out of 31,912 people, essentially nobody made the mistake of starting too
+         slowly. Whatever pace feels right at the start line, the entire field
+         suggests it is too fast.</p>
+      <span class="who">The finding, stated usefully</span>
+    </div>
+  </section>
+
+  <section class="stop stop--end">
+    <p class="eyebrow">Finish · how it was built</p>
+    <h2>Where the numbers come from</h2>
+    <p>
+      Two Python files, no manual steps. <code>fetch_data.py</code> pulls the
+      results, <code>analyze.py</code> writes every figure and table on this page.
+      The raw data is git-ignored and re-downloaded on demand; the outputs are
+      committed, so the repository shows its work.
+    </p>
+    <dl class="specs">
+      <div class="spec"><dt>Data</dt><dd>Official 2014 Boston Marathon results, via the public <a href="https://github.com/llimllib/bostonmarathon">llimllib/bostonmarathon</a> mirror</dd></div>
+      <div class="spec"><dt>Sample</dt><dd>31,912 finishers carrying a valid half-marathon split</dd></div>
+      <div class="spec"><dt>Definition</dt><dd>First half = the half-marathon mat time. Second half = finish − half. Negative split = second &lt; first</dd></div>
+      <div class="spec"><dt>Built with</dt><dd>Python, pandas, matplotlib</dd></div>
+      <div class="spec"><dt>Reproduce</dt><dd><code>pip install -r requirements.txt</code>, then <code>python fetch_data.py &amp;&amp; python analyze.py</code></dd></div>
+      <div class="spec"><dt>Companion study</dt><dd><a href="https://lyhjeremy.github.io/marathon-pacing-decay/">Hitting the Wall</a>, which follows the same field 5 km at a time to find where the fade starts</dd></div>
+    </dl>
+  </section>
+
+</div>
+</div>
+
+<div class="wrap">
+  <section class="close">
+    <h2>Next time, start slower than feels right</h2>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="../">Read the short version</a>
+      <a class="textlink" href="https://github.com/lyhjeremy/marathon-negative-split-myth">or the code and data</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      The Negative-Split Myth ·
+      <a href="../">Story</a> ·
+      <a href="https://github.com/lyhjeremy/marathon-negative-split-myth">Source</a> ·
+      MIT © 2026 Jeremy Lee
+    </p>
+    <p>Results data © the Boston Athletic Association, via a public mirror.</p>
+  </footer>
+</div>
+</body>
+</html>
