@@ -1,11 +1,13 @@
 # The Negative-Split Myth
 
-Coaches preach the **negative split** — run the second half of a marathon faster
+Design and copy follow [these standards](https://github.com/lyhjeremy/lyhjeremy/blob/main/DESIGN_STANDARDS.md).
+
+Coaches preach the **negative split.** Run the second half of a marathon faster
 than the first. So how many runners actually do it? Across **31,912 finishers** of
 the 2014 Boston Marathon, only **2.5%** did; the median runner slowed **14%**.
 
-> 🌐 **Read the story:** https://lyhjeremy.github.io/marathon-negative-split-myth/
-> 📖 **In depth:** https://lyhjeremy.github.io/marathon-negative-split-myth/overview/
+> **Read the story:** https://lyhjeremy.github.io/marathon-negative-split-myth/
+> **In depth:** https://lyhjeremy.github.io/marathon-negative-split-myth/overview/
 
 ## Findings
 - **2.5%** of finishers ran a true negative split; ~94% slowed down.

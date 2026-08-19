@@ -1,7 +1,7 @@
 # The Negative-Split Myth: how 31,912 runners actually paced Boston
 
-**Question.** "Negative split" — running the second half faster than the first —
-is the most repeated advice in marathoning. How many runners actually achieve it?
+**Question.** "Negative split", running the second half faster than the first.
+Is the most repeated advice in marathoning. How many runners actually achieve it?
 
 **Data.** Official 2014 Boston Marathon results (public mirror
 `llimllib/bostonmarathon`), 31,912 finishers with valid half-marathon splits.
