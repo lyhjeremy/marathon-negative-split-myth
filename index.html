@@ -50,6 +50,19 @@
   figcaption { font-family: var(--font-body); font-size: 14.5px; color: var(--ink-2); margin-top: 9px; max-width: 40rem; }
   .note { font-family: var(--font-body); font-size: 15px; color: var(--ink-2); border: 1px solid var(--rule); background: var(--panel); padding: 16px 20px; margin: 4px 0 18px; }
   code { font-family: var(--font-mono); font-size: .88em; }
+  .chart { border: 1px solid var(--rule); background: var(--panel); padding: 10px 10px 4px; }
+  .chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .chart svg:focus { outline: 2px solid var(--signal); outline-offset: 3px; }
+  .chart text { font-family: var(--font-mono); font-size: 12px; fill: var(--ink-2); }
+  .chart .grid { stroke: var(--rule); stroke-width: 1; }
+  .chart .b { fill: var(--signal-2); } .chart .b.neg { fill: var(--signal); } .chart .b.on { fill: var(--ink); }
+  .chart .zero { stroke: var(--ink); stroke-width: 1.5; } .chart .med { stroke: var(--ink); stroke-width: 2; stroke-dasharray: 6 4; }
+  .chart .lab { fill: var(--ink); font-family: var(--font-display); font-size: 15px; font-weight: 600; } .chart .lab.neg { fill: var(--signal); }
+  .readout { font-family: var(--font-mono); font-size: 13.5px; color: var(--ink); min-height: 1.6em; margin: 10px 0 0; }
+  .fades { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); font-family: var(--font-mono); font-size: 14px; }
+  .fades li { display: grid; grid-template-columns: 6.6rem 1fr 4rem; gap: 12px; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--rule); color: var(--ink-2); }
+  .fades i { display: block; height: 12px; background: var(--signal); }
+  .fades b { font-weight: 400; color: var(--ink); text-align: right; }
   footer { border-top: 1px solid var(--rule); margin-top: 26px; padding: 22px 0 60px; font-family: var(--font-body); font-size: 14.5px; color: var(--ink-2); }
   footer a { color: var(--ink-2); }
 </style>
@@ -81,8 +94,10 @@
     <div>
       <h2>Nearly everyone slows down</h2>
       <p>The whole distribution of second-half slowdowns sits on the slow side of zero. Its peak is around 12 to 15%, and the median is 14%. That is the typical runner, so a handful of blow-ups can't explain it.</p>
-      <figure><img src="figures/01_slowdown_distribution.png" alt="Histogram of each runner's second-half slowdown. Nearly the whole distribution is to the right of the zero line, peaking around a 12 to 15 percent slowdown." width="1600" height="919" />
-        <figcaption>Second half against first, one runner at a time. Dashed line: even pace. Solid line: the median, 14% slower.</figcaption></figure>
+      <figure><div class="chart" id="hist"></div>
+        <p class="readout" id="hist-read" aria-live="polite">Hover the chart, or focus it and use the arrow keys, to read a bar.</p>
+        <noscript><img src="figures/01_slowdown_distribution.png" alt="Histogram of each runner's second-half slowdown. Nearly the whole distribution is to the right of the zero line, peaking around a 12 to 15 percent slowdown." width="1600" height="919" /></noscript>
+        <figcaption>Each bar is one percentage point of second-half slowdown, as a share of all 31,912 finishers. Rust bars ran the second half faster. The dashed line is the median. From <code>tables/web_splits.json</code>.</figcaption></figure>
     </div>
   </section>
 
@@ -91,8 +106,8 @@
     <div>
       <h2>The faster the runner, the smaller the fade</h2>
       <p>Runners who finished under 3 hours slowed by a median of 5.3% in the second half. Runners slower than 4 hours slowed by 21.7%, about four times as much. Fitter runners are further from their limit at halfway, so the pattern is an association and can't show that even pacing makes anyone faster.</p>
-      <figure><img src="figures/03_slowdown_by_finish.png" alt="Line chart of median second-half slowdown by finish-time band, rising from about 4.5 percent for 2 to 2.5 hour finishers to about 27 percent for 5 to 6 hour finishers." width="1600" height="919" />
-        <figcaption>Median slowdown by finish band, from 2:00 to 6:00.</figcaption></figure>
+      <figure><ul class="fades" aria-label="Median second-half slowdown by finish band"><li><span>2:00&ndash;2:30</span><i style="width:17%"></i><b>+4.5%</b></li><li><span>2:30&ndash;3:00</span><i style="width:19%"></i><b>+5.2%</b></li><li><span>3:00&ndash;3:30</span><i style="width:32%"></i><b>+8.6%</b></li><li><span>3:30&ndash;4:00</span><i style="width:45%"></i><b>+12.2%</b></li><li><span>4:00&ndash;4:30</span><i style="width:65%"></i><b>+17.3%</b></li><li><span>4:30&ndash;5:00</span><i style="width:82%"></i><b>+22.0%</b></li><li><span>5:00&ndash;6:00</span><i style="width:100%"></i><b>+26.8%</b></li></ul>
+        <figcaption>Median second-half slowdown by finish band. The <a href="overview/#yours">write-up</a> compares your own split with your band.</figcaption></figure>
       <p>Women slowed a little less than men: a median of 13.4% against 14.8%.</p>
     </div>
   </section>
@@ -102,11 +117,40 @@
     <div>
       <p>Official 2014 Boston results from the public <a href="https://github.com/llimllib/bostonmarathon">llimllib/bostonmarathon</a> mirror, 31,912 finishers with a valid half-marathon split. First half is the halfway mat time; second half is finish time minus that. Python with pandas and matplotlib; <code>fetch_data.py</code> then <code>analyze.py</code> reproduce every number.</p>
       <div class="note">One race on one course. Boston's early downhill and its hills between miles 16 and 21 make an even split harder than on a flat course, and its qualified field is faster than a typical marathon's. The halfway split is the only checkpoint used, and weather is not modeled.</div>
-      <p>The useful reading: almost nobody in this field started too slowly. <a href="overview/">The full writeup</a> has the split medians for every finish band.</p>
+      <p>The useful reading: almost nobody in this field started too slowly. <a href="overview/">The full write-up</a> has the split medians for every finish band and a tool that places your own split against the field.</p>
     </div>
   </section>
 
   <footer>Python (pandas, matplotlib) &middot; &copy; 2026 Jeremy Lee &middot; MIT License &middot; <a href="https://github.com/lyhjeremy/marathon-negative-split-myth">Source on GitHub</a> &middot; <a href="https://lyhjeremy.github.io/marathon-pacing-decay/">Companion study: Hitting the Wall</a></footer>
 </div>
+<script>
+(function () {
+  // all finishers, from tables/web_splits.json (export_web.py)
+  var g = {"n":31912,"neg":2.52,"med":14.03,"hist":[11,2,1,1,3,2,9,11,11,22,47,64,119,188,312,507,723,892,979,1084,1172,1263,1246,1253,1252,1227,1194,1170,1162,1032,1063,986,916,826,824,795,709,747,621,597,539,543,481,444,404,381,335,333,310,257,262,187,208,209,174,132,150,138,107,98,90,82,75,77,76,68,56,54,50,47,29,37,24,28,384]};
+  var NS = "http://www.w3.org/2000/svg", box = document.getElementById("hist"), read = document.getElementById("hist-read"), cur = 30, bars = [];
+  function el(tag, at, parent, txt) { var e = document.createElementNS(NS, tag); for (var k in at) e.setAttribute(k, at[k]); if (txt != null) e.textContent = txt; if (parent) parent.appendChild(e); return e; }
+  function binLabel(i) { var lo = i - 15; return i === 0 ? "15% or more faster" : i === 75 ? "60% or more slower" : (lo < 0 ? (lo === -1 ? "0 to 1% faster" : (-lo - 1) + " to " + (-lo) + "% faster") : lo + " to " + (lo + 1) + "% slower"); }
+  function show(i) { cur = Math.max(0, Math.min(75, i)); bars.forEach(function (r, j) { r.classList.toggle("on", j === cur); });
+    read.textContent = binLabel(cur) + ": " + g.hist[cur].toLocaleString("en-US") + " runners, " + (100 * g.hist[cur] / g.n).toFixed(1) + "% of the field"; }
+  function draw() {
+    var W = Math.max(300, box.clientWidth - 20), H = W < 560 ? 250 : 310, L = 40, R = 10, T = 26, B = 36, y1 = 4;
+    var bw = (W - L - R) / 76, X = function (v) { return L + (v + 15) * bw; }, Y = function (v) { return T + (1 - v / y1) * (H - T - B); };
+    box.innerHTML = ""; bars = [];
+    var svg = el("svg", { viewBox: "0 0 " + W + " " + H, width: W, height: H, tabindex: 0, role: "img", "aria-label": "Histogram of second-half slowdown for all 31,912 finishers. Median +14.0%; 2.5% ran a negative split." }, box);
+    for (var v = 0; v <= y1; v++) { el("line", { class: "grid", x1: L, x2: W - R, y1: Y(v), y2: Y(v) }, svg); el("text", { x: L - 6, y: Y(v) + 4, "text-anchor": "end" }, svg, v + "%"); }
+    [-10, 0, 10, 20, 30, 40, 50, 60].forEach(function (t) { el("text", { x: X(t), y: H - B + 18, "text-anchor": "middle" }, svg, (t > 0 ? "+" : t < 0 ? "\u2212" : "") + Math.abs(t) + "%"); });
+    g.hist.forEach(function (c, i) { var v = 100 * c / g.n; bars.push(el("rect", { class: "b" + (i < 15 ? " neg" : ""), x: X(i - 15) + 0.5, y: Y(v), width: Math.max(1, bw - 1), height: Y(0) - Y(v) }, svg)); });
+    el("line", { class: "zero", x1: X(0), x2: X(0), y1: T - 6, y2: Y(0) }, svg);
+    el("line", { class: "med", x1: X(g.med), x2: X(g.med), y1: T - 6, y2: Y(0) }, svg);
+    el("text", { class: "lab", x: X(g.med) + 6, y: T + 6 }, svg, "median +" + g.med.toFixed(1) + "%");
+    var nl = el("text", { class: "lab neg", x: L + 6, y: Y(2.4) }, svg, g.neg.toFixed(1) + "%"); el("tspan", { x: L + 6, dy: 17 }, nl, "faster");
+    svg.addEventListener("mousemove", function (e) { var r = svg.getBoundingClientRect(); show(Math.floor(((e.clientX - r.left) * W / r.width - L) / bw)); });
+    svg.addEventListener("keydown", function (e) { if (e.key === "ArrowRight" || e.key === "ArrowLeft") { e.preventDefault(); show(cur + (e.key === "ArrowRight" ? 1 : -1)); } });
+    svg.addEventListener("focus", function () { show(cur); });
+  }
+  var rt; window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(draw, 120); });
+  draw();
+})();
+</script>
 </body>
 </html>

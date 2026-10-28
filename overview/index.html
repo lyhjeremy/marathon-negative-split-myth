@@ -235,7 +235,7 @@
   .stop .eyebrow { color: var(--accent2); }
 
 
-  .chip { margin: 30px 0 0; max-width: 36rem; background: var(--card); border: 1px solid var(--rule); border-top: 3px dashed var(--edge); border-bottom: 3px dashed var(--edge); padding: 16px 18px 14px; font-family: var(--mono); font-size: 13.5px; line-height: 1.55; color: var(--ink); }
+  .chip { margin: 30px 0 0; max-width: 40rem; background: var(--card); border: 1px solid var(--rule); border-top: 3px dashed var(--edge); border-bottom: 3px dashed var(--edge); padding: 16px 18px 14px; font-family: var(--mono); font-size: 13.5px; line-height: 1.55; color: var(--ink); }
   .chip-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; text-transform: uppercase; letter-spacing: .1em; font-size: 11.5px; color: var(--muted); border-bottom: 1px solid var(--rule); padding-bottom: 8px; margin-bottom: 6px; }
   .chip table { min-width: 0; font-family: var(--mono); font-size: 13.5px; }
   .chip th, .chip td { padding: 5px 0; border-bottom: 1px dotted var(--rule); text-align: right; }
@@ -243,9 +243,47 @@
   .chip th { font-size: 10.5px; letter-spacing: .08em; }
   .chip td { color: var(--ink); }
   .chip td.fade { color: var(--accent); font-weight: 600; }
+  .chip td.fb { width: 26%; padding-left: 12px; }
+  .chip .fbar { display: block; height: 9px; background: var(--accent); }
   .chip tr.all td { border-top: 1px solid var(--ink); border-bottom: 0; font-weight: 600; }
   .chip-foot { margin-top: 10px; font-size: 11.5px; color: var(--muted); letter-spacing: .04em; }
-  @media (max-width: 640px) { .chip { padding: 14px 12px 12px; font-size: 12px; } .chip table { font-size: 12px; } }
+  @media (max-width: 640px) { .chip { padding: 14px 10px 12px; font-size: 11.5px; } .chip table { font-size: 11.5px; } .chip td.fb { display: none; } .chip th.fb { display: none; } }
+  .fig-title { font-family: var(--display); font-weight: 600; font-size: clamp(22px, 2.8vw, 28px); line-height: 1.1; margin: 0 0 4px; color: var(--ink); }
+  .seg { display: flex; flex-wrap: wrap; margin: 14px 0 12px; }
+  .seg button { font: 600 13.5px/1.2 var(--mono); padding: 8px 11px; border: 1px solid var(--edge); background: transparent; color: var(--ink); cursor: pointer; margin: 0 -1px -1px 0; }
+  .seg button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .chart { border: 1px solid var(--rule); background: var(--card); padding: 10px 10px 4px; }
+  .chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .chart svg:focus { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .chart text { font-family: var(--mono); font-size: 12px; fill: var(--muted); }
+  .chart .grid { stroke: var(--rule); stroke-width: 1; }
+  .chart .b { fill: var(--accent2); }
+  .chart .b.neg { fill: var(--accent); }
+  .chart .b.on { fill: var(--ink); }
+  .chart .zero { stroke: var(--ink); stroke-width: 1.5; }
+  .chart .med { stroke: var(--ink); stroke-width: 2; stroke-dasharray: 6 4; }
+  .chart .lab { fill: var(--ink); font-family: var(--display); font-size: 15px; font-weight: 600; }
+  .chart .lab.neg { fill: var(--accent); }
+  .readout { font-family: var(--mono); font-size: 13.5px; color: var(--ink); min-height: 1.6em; margin: 10px 0 0; }
+  .bib { margin-top: 26px; border: 2px solid var(--ink); background: var(--card); }
+  .bib-head { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; padding: 9px 16px; background: var(--ink); color: var(--paper); font: 600 12px/1.4 var(--mono); letter-spacing: .14em; text-transform: uppercase; }
+  .bib-body { padding: 18px 18px 20px; }
+  .bib-in { display: flex; flex-wrap: wrap; gap: 14px 28px; }
+  .field { font-family: var(--sans); }
+  .field label { display: block; font-size: 14.5px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+  .field input { font: 600 26px/1.1 var(--display); letter-spacing: .03em; width: 8.8ch; padding: 6px 10px; border: 1px solid var(--edge); background: var(--paper); color: var(--ink); }
+  .field .hint { font-size: 13px; color: var(--muted); margin-top: 5px; }
+  .verdict { font-family: var(--display); font-weight: 700; font-size: clamp(40px, 7vw, 64px); line-height: 1; color: var(--accent); margin: 22px 0 6px; }
+  .verdict.ok { color: var(--accent2); }
+  .bib-body p { font-family: var(--sans); font-size: 15.5px; line-height: 1.5; color: var(--ink2); margin: 0 0 10px; max-width: 60ch; }
+  .bib-body p.warn { color: var(--accent); }
+  .strip { margin: 18px 0 6px; font-family: var(--mono); font-size: 12.5px; color: var(--ink2); }
+  .strip .row { display: grid; grid-template-columns: 6.5rem 1fr; gap: 10px; align-items: center; margin: 6px 0; }
+  .strip .track { display: flex; height: 26px; }
+  .strip .h1, .strip .h2 { display: flex; align-items: center; padding: 0 6px; color: var(--paper); white-space: nowrap; overflow: hidden; font-size: 12px; }
+  .strip .h1 { background: var(--accent2); }
+  .strip .h2 { background: var(--accent); border-left: 2px solid var(--card); }
+  @media (max-width: 640px) { .strip .row { grid-template-columns: 1fr; gap: 2px; } }
 </style>
 </head>
 <body>
@@ -261,27 +299,26 @@
 
     <p class="hero-sub">
       Run the second half faster than the first: it is the most repeated pacing
-      advice in marathoning. I took the official timing-mat splits for the whole
-      <strong>2014 Boston Marathon</strong> and compared each runner's two halves.
-      <strong>2.5%</strong> came home faster than they went out. The median
-      runner's second half was <strong>14% slower</strong> than the first.
+      advice in marathoning. In the 2014 Boston Marathon, 2.5% of finishers did it.
+      The median runner's second half was 14% slower than the first, and the
+      further back in the field, the bigger the fade.
     </p>
 
     <div class="cta-row">
-      <a class="btn btn-primary" href="../">Read the short version</a>
+      <a class="btn btn-primary" href="#yours">Check your own split</a>
       <a class="textlink" href="https://github.com/lyhjeremy/marathon-negative-split-myth">Code and data on GitHub</a>
     </div>
 
     <div class="claims">
       <div class="claim">
         <div class="n">2.5%</div>
-        <p>of finishers ran a negative split (second half shorter than the first).
-           Another 3.9% finished within 2% of even. About 94% slowed down.</p>
+        <p>of finishers ran a negative split. Another 3.9% finished within 2% of
+           even. About 94% slowed down.</p>
       </div>
       <div class="claim">
         <div class="n">+14%</div>
-        <p>median second-half slowdown across the field. This is the middle of the
-           distribution, so a handful of blow-ups can't be the explanation.</p>
+        <p>median second-half slowdown. That is the middle of the field, so a few
+           blow-ups can't explain it.</p>
       </div>
       <div class="claim">
         <div class="n">+5.3%</div>
@@ -289,8 +326,8 @@
       </div>
       <div class="claim">
         <div class="n">+21.7%</div>
-        <p>median slowdown for runners who took longer than 4 hours, about four
-           times the fade of the sub-3 group.</p>
+        <p>median slowdown for runners over 4 hours, about four times the fade of
+           the sub-3 group.</p>
       </div>
     </div>
   </section>
@@ -301,54 +338,43 @@
 
   <section class="stop">
     <p class="eyebrow">Start: the question</p>
-    <h2>Good advice, or advice nobody manages to follow?</h2>
+    <h2>Good advice, or advice nobody follows?</h2>
     <p>
-      Hold back early, finish faster, run your best time. Training plans say it
-      and the physiology behind it holds up, yet I had never seen anyone quote how
-      many ordinary runners on an ordinary race day pull it off.
+      Training plans say to hold back early and finish faster, and the physiology
+      behind it holds up. I had never seen a count of how many ordinary runners
+      actually manage it.
     </p>
     <p>
-      Boston publishes a half-marathon split for every finisher, so the question
-      has a direct answer. Each race splits into the time to the halfway mat and
-      the time from that mat to the line. If the second number is smaller, the
-      runner ran a negative split. The whole analysis is that subtraction, done
-      31,912 times.
+      Boston publishes a half-marathon split for every finisher, so the count is
+      easy to make. Each race splits into the time to the halfway mat and the time
+      from that mat to the line. If the second number is smaller, the runner ran a
+      negative split. The analysis is that subtraction, done 31,912 times.
     </p>
   </section>
 
   <section class="stop stop--key">
     <p class="eyebrow">13.1 mi: the answer</p>
     <h2>Almost nobody speeds up</h2>
-
-    <div class="bignum">2.5%</div>
-    <p class="bignum-note">of 31,912 finishers (803 runners) ran the second half faster than the first.</p>
-
     <p>
-      Another 3.9% finished between even and 2% slower, close enough to call
-      flat. The rest of the field, about <strong>94%</strong>, gave time back.
-      The whole distribution of slowdowns sits on the slow side of zero, and its
-      peak is at roughly 12 to 15%.
+      The rust bars at the left of the chart are the negative splits: 803 runners.
+      Another 3.9% finished between even and 2% slower. Everyone else, about 94%
+      of the field, gave time back, and the most common fade was 12 to 15%. Pick a
+      finish band to see how the shape moves from the front of the field to the back.
     </p>
-    <figure>
-      <div class="plate">
-        <img width="1600" height="919" src="../figures/01_slowdown_distribution.png" fetchpriority="high"
-          alt="Histogram of each runner's second-half slowdown. Nearly the whole distribution sits to the right of the zero line, peaking around a 12 to 15 percent slowdown, with a long tail past 40 percent." />
-      </div>
+    <figure id="hist-fig">
+      <p class="fig-title" id="hist-title" aria-live="polite">All 31,912 finishers: 2.5% ran the second half faster</p>
+      <div class="seg" role="group" aria-label="Finish band" id="hist-seg"></div>
+      <div class="chart" id="hist"></div>
+      <p class="readout" id="hist-read" aria-live="polite">Hover the chart, or focus it and use the arrow keys, to read a bar.</p>
+      <noscript>
+        <div class="plate"><img width="1600" height="919" src="../figures/01_slowdown_distribution.png" alt="Histogram of each runner's second-half slowdown. Nearly the whole distribution sits to the right of the zero line, peaking around a 12 to 15 percent slowdown, with a long tail past 40 percent." /></div>
+      </noscript>
       <figcaption>
-        Second half against first, one runner at a time. The dashed line is even
-        pace; the solid line is the median, 14% slower.
-      </figcaption>
-    </figure>
-    <figure>
-      <div class="plate">
-        <img width="1500" height="840" src="../figures/02_split_categories.png" loading="lazy"
-          alt="Bar chart of three pacing categories: negative split at 1.5 percent, even within plus or minus 2 percent at 4.8 percent, and positive split at 93.6 percent." />
-      </div>
-      <figcaption>
-        This chart bins a little differently from the headline: it counts
-        "even" as within 2% either side, so a runner who was up to 1% faster in
-        the second half lands in the even bar. Under that rule the negative-split
-        bar is 1.5%.
+        Each bar is one percentage point of second-half slowdown, as a share of the
+        runners in the selected band. Values beyond &minus;15% and 60% are piled into
+        the end bars. The dashed line is the band's median. Data from
+        <code>tables/web_splits.json</code>, written by <code>export_web.py</code>
+        with the same definitions as <code>analyze.py</code>.
       </figcaption>
     </figure>
   </section>
@@ -357,60 +383,77 @@
     <p class="eyebrow">20 mi: who fades</p>
     <h2>Even pacing goes with being fast</h2>
     <p>
-      Split the field by finish time and the slowdown grows at every step from
-      front to back: about <strong>4.5%</strong> for the 2:00 to 2:30 group,
-      <strong>26.8%</strong> for the 5:00 to 6:00 group. The card below gives the
-      median halves for each band.
+      Split the field by finish time and the median slowdown grows at every step,
+      from 4.5% for the 2:00 to 2:30 group to 26.8% for the 5:00 to 6:00 group.
+      Negative splits thin out the same way: 8.2% of the 2:00 to 2:30 group ran
+      one, and 0.5% of the 5:00 to 6:00 group.
     </p>
 
     <div class="chip" role="group" aria-label="Median first-half and second-half times by finish band">
       <div class="chip-head"><span>Boston 2014 split report</span><span>Medians by finish band</span></div>
       <table>
-        <thead><tr><th>Finish band</th><th>1st half</th><th>2nd half</th><th>Fade</th></tr></thead>
+        <thead><tr><th>Finish band</th><th>1st half</th><th>2nd half</th><th>Fade</th><th class="fb"></th></tr></thead>
         <tbody>
-          <tr><td>2:00&ndash;2:30</td><td>1:10:14</td><td>1:13:32</td><td class="fade">+4.5%</td></tr>
-          <tr><td>2:30&ndash;3:00</td><td>1:23:25</td><td>1:28:35</td><td class="fade">+5.2%</td></tr>
-          <tr><td>3:00&ndash;3:30</td><td>1:33:45</td><td>1:43:03</td><td class="fade">+8.6%</td></tr>
-          <tr><td>3:30&ndash;4:00</td><td>1:45:07</td><td>1:59:05</td><td class="fade">+12.2%</td></tr>
-          <tr><td>4:00&ndash;4:30</td><td>1:56:41</td><td>2:17:30</td><td class="fade">+17.3%</td></tr>
-          <tr><td>4:30&ndash;5:00</td><td>2:07:52</td><td>2:36:24</td><td class="fade">+22.0%</td></tr>
-          <tr><td>5:00&ndash;6:00</td><td>2:22:20</td><td>3:01:42</td><td class="fade">+26.8%</td></tr>
-          <tr class="all"><td>All 31,912</td><td>1:47:50</td><td>2:03:46</td><td class="fade">+14.0%</td></tr>
+          <tr><td>2:00&ndash;2:30</td><td>1:10:14</td><td>1:13:32</td><td class="fade">+4.5%</td><td class="fb"><span class="fbar" style="width:17%"></span></td></tr>
+          <tr><td>2:30&ndash;3:00</td><td>1:23:25</td><td>1:28:35</td><td class="fade">+5.2%</td><td class="fb"><span class="fbar" style="width:19%"></span></td></tr>
+          <tr><td>3:00&ndash;3:30</td><td>1:33:45</td><td>1:43:03</td><td class="fade">+8.6%</td><td class="fb"><span class="fbar" style="width:32%"></span></td></tr>
+          <tr><td>3:30&ndash;4:00</td><td>1:45:07</td><td>1:59:05</td><td class="fade">+12.2%</td><td class="fb"><span class="fbar" style="width:45%"></span></td></tr>
+          <tr><td>4:00&ndash;4:30</td><td>1:56:41</td><td>2:17:30</td><td class="fade">+17.3%</td><td class="fb"><span class="fbar" style="width:65%"></span></td></tr>
+          <tr><td>4:30&ndash;5:00</td><td>2:07:52</td><td>2:36:24</td><td class="fade">+22.0%</td><td class="fb"><span class="fbar" style="width:82%"></span></td></tr>
+          <tr><td>5:00&ndash;6:00</td><td>2:22:20</td><td>3:01:42</td><td class="fade">+26.8%</td><td class="fb"><span class="fbar" style="width:100%"></span></td></tr>
+          <tr class="all"><td>All 31,912</td><td>1:47:50</td><td>2:03:46</td><td class="fade">+14.0%</td><td class="fb"><span class="fbar" style="width:52%"></span></td></tr>
         </tbody>
       </table>
-      <p class="chip-foot">Fade is the median of each runner's own second-half/first-half ratio, so it is not the ratio of the two median columns. Bands as in figure 3, from <code>analyze.py</code>.</p>
+      <p class="chip-foot">Fade is the median of each runner's own second-half/first-half ratio, so it is not the ratio of the two median columns. Bands as in figure 3 of <code>analyze.py</code>.</p>
     </div>
 
-    <p>
-      The direction of cause needs care. Even pacing probably helps, but much of
-      this gap is that fitter runners are further from their limit at halfway.
-      The data shows the association and can't separate the two.
+    <p style="margin-top:22px">
+      The cause runs both ways. Even pacing probably helps, but fitter runners are
+      also further from their limit at halfway. The data shows the association and
+      can't separate the two.
     </p>
-    <figure>
-      <div class="plate">
-        <img width="1600" height="919" src="../figures/03_slowdown_by_finish.png" loading="lazy"
-          alt="Line chart of median second-half slowdown by finish-time band, rising from about 4.5 percent for 2 to 2.5 hour finishers to about 26.8 percent for 5 to 6 hour finishers." />
-      </div>
-      <figcaption>Median slowdown by finish band: nearly flat across the first two bands, then rising steadily.</figcaption>
-    </figure>
   </section>
 
   <section class="stop">
     <p class="eyebrow">23 mi: a smaller gap</p>
     <h2>Women paced slightly more evenly</h2>
     <p>
-      The median slowdown was <strong>13.4%</strong> for women and
-      <strong>14.8%</strong> for men. Women were a little less likely to run a
-      negative split (2.3% against 2.7%), so the difference lies in how far each
-      group faded. Both differences are small next to the ability effect above.
+      The median slowdown was 13.4% for women and 14.8% for men. Women were a
+      little less likely to run a negative split (2.3% against 2.7%), so the
+      difference is in how far each group faded. Both gaps are small next to the
+      one between the front and the back of the field.
     </p>
-    <figure>
-      <div class="plate">
-        <img width="1300" height="840" src="../figures/04_by_gender.png" loading="lazy"
-          alt="Bar chart of median second-half slowdown, 14.8 percent for men and 13.4 percent for women, with each group's negative-split share labeled on its bar." />
+  </section>
+
+  <section class="stop stop--key" id="yours">
+    <p class="eyebrow">25 mi: your race</p>
+    <h2>Where your split lands</h2>
+    <p>
+      Enter your halfway split and your finish time from any marathon. The page
+      works out your fade and compares it with the 2014 Boston runners who
+      finished in the same band.
+    </p>
+    <div class="bib">
+      <div class="bib-head"><span>Split check</span><span>Against Boston 2014</span></div>
+      <div class="bib-body">
+        <div class="bib-in">
+          <div class="field">
+            <label for="y-half">Halfway split</label>
+            <input type="text" id="y-half" value="1:50:00" inputmode="numeric" autocomplete="off" spellcheck="false" />
+          </div>
+          <div class="field">
+            <label for="y-fin">Finish time</label>
+            <input type="text" id="y-fin" value="3:58:00" inputmode="numeric" autocomplete="off" spellcheck="false" />
+          </div>
+        </div>
+        <p class="field"><span class="hint">h:mm:ss or h:mm. Finish between 2:00 and 6:00 to compare with a band.</span></p>
+        <div aria-live="polite">
+          <div class="verdict" id="y-verdict">&nbsp;</div>
+          <div class="strip" id="y-strip"></div>
+          <p id="y-text"></p>
+        </div>
       </div>
-      <figcaption>Median slowdown by gender, with each group's negative-split share on its bar.</figcaption>
-    </figure>
+    </div>
   </section>
 
   <section class="stop stop--warn">
@@ -418,14 +461,14 @@
     <h2>One race, one day, one course</h2>
     <p>
       This is one edition of one marathon, and Boston's course works against even
-      pacing. It drops for the first few miles and puts the Newton hills between miles 16
-      and 21, which makes an even split harder to hold. Some of the 14% belongs
-      to the course.
+      pacing. It drops for the first few miles and puts the Newton hills between
+      miles 16 and 21. Some of the 14% belongs to the course, so a split from a
+      flat race will look better against this field than it would at home.
     </p>
     <p>
-      Boston is also a qualifying race, so its field is faster and more
-      experienced than a typical big-city marathon. That should push toward more
-      even pacing, so a general-entry field would probably fade more.
+      Boston is also a qualifying race, with a faster and more experienced field
+      than a typical big-city marathon. That should push toward more even pacing,
+      so a general-entry field would probably fade more.
     </p>
     <p>
       The halfway split is the only checkpoint used. A runner who surged and
@@ -435,13 +478,13 @@
   </section>
 
   <section class="stop">
-    <p class="eyebrow">25 mi: what to take from it</p>
+    <p class="eyebrow">26 mi: what to take from it</p>
     <h2>Read it backwards</h2>
     <p>
       The title invites the reading that negative splitting is a myth and not
-      worth trying. I take the opposite lesson from the data: the runners closest
-      to even pace were the fastest ones, and the field's pacing errors run almost
-      entirely in one direction.
+      worth trying. I take the opposite lesson: the runners closest to even pace
+      were the fastest ones, and the field's pacing errors run almost entirely in
+      one direction.
     </p>
     <div class="pull">
       <p>Of 31,912 finishers, almost none started too slowly. Whatever pace feels
@@ -454,17 +497,18 @@
     <p class="eyebrow">Finish: how it was built</p>
     <h2>Where the numbers come from</h2>
     <p>
-      Two Python scripts. <code>fetch_data.py</code> downloads the results and
-      <code>analyze.py</code> writes the figures and <code>tables/summary.csv</code>.
-      The raw data is git-ignored and downloaded on demand; the figures and table
-      are committed.
+      <code>fetch_data.py</code> downloads the results and <code>analyze.py</code>
+      writes the figures and <code>tables/summary.csv</code>.
+      <code>export_web.py</code> reads the same data through
+      <code>analyze.load()</code> and writes the band histograms and percentiles
+      this page draws from. The raw data is git-ignored and downloaded on demand.
     </p>
     <dl class="specs">
       <div class="spec"><dt>Data</dt><dd>Official 2014 Boston Marathon results, from the public <a href="https://github.com/llimllib/bostonmarathon">llimllib/bostonmarathon</a> mirror</dd></div>
       <div class="spec"><dt>Sample</dt><dd>31,912 finishers with a valid half-marathon split</dd></div>
       <div class="spec"><dt>Definition</dt><dd>First half is the half-marathon mat time; second half is finish minus half. Ratio is second over first. Negative split means a ratio below 1; even means 1.00 to 1.02</dd></div>
-      <div class="spec"><dt>Stack</dt><dd>Python, pandas, NumPy, matplotlib</dd></div>
-      <div class="spec"><dt>Reproduce</dt><dd><code>pip install -r requirements.txt</code>, then <code>python fetch_data.py &amp;&amp; python analyze.py</code></dd></div>
+      <div class="spec"><dt>Stack</dt><dd>Python, pandas, NumPy, matplotlib; the charts here are plain SVG</dd></div>
+      <div class="spec"><dt>Reproduce</dt><dd><code>pip install -r requirements.txt</code>, then <code>python fetch_data.py &amp;&amp; python analyze.py &amp;&amp; python export_web.py</code></dd></div>
       <div class="spec"><dt>Companion study</dt><dd><a href="https://lyhjeremy.github.io/marathon-pacing-decay/">Hitting the Wall</a> follows the same field 5 km at a time to find where the fade starts</dd></div>
     </dl>
   </section>
@@ -491,5 +535,93 @@
     <p>Results data © the Boston Athletic Association, via a public mirror.</p>
   </footer>
 </div>
+
+<script>
+(function () {
+  // tables/web_splits.json (export_web.py)
+  var S = {"all":{"n":31912,"neg_pct":2.52,"even_pct":3.85,"median_fade":14.03,"median_first":107.83,"median_second":123.77,"fade_pctiles":[-53.6,-1.94,-0.46,0.35,0.94,1.42,1.86,2.25,2.61,2.95,3.28,3.6,3.92,4.24,4.55,4.81,5.11,5.38,5.64,5.92,6.18,6.43,6.68,6.93,7.19,7.45,7.71,7.96,8.22,8.49,8.74,8.97,9.21,9.49,9.74,10.0,10.26,10.52,10.78,11.04,11.29,11.58,11.84,12.12,12.4,12.66,12.93,13.2,13.47,13.75,14.03,14.36,14.69,14.95,15.26,15.53,15.86,16.18,16.52,16.83,17.15,17.53,17.85,18.2,18.6,18.99,19.37,19.74,20.15,20.57,20.97,21.38,21.84,22.25,22.67,23.15,23.68,24.2,24.76,25.32,25.9,26.45,27.09,27.75,28.38,29.17,29.97,30.83,31.74,32.75,33.69,34.88,36.17,37.77,39.34,41.5,43.97,47.74,52.28,62.01,245.7],"hist":[11,2,1,1,3,2,9,11,11,22,47,64,119,188,312,507,723,892,979,1084,1172,1263,1246,1253,1252,1227,1194,1170,1162,1032,1063,986,916,826,824,795,709,747,621,597,539,543,481,444,404,381,335,333,310,257,262,187,208,209,174,132,150,138,107,98,90,82,75,77,76,68,56,54,50,47,29,37,24,28,384]},"bands":[{"label":"2:00-2:30","lo":120,"hi":150,"n":98,"neg_pct":8.16,"even_pct":16.33,"median_fade":4.53,"median_first":70.22,"median_second":73.52,"fade_pctiles":[-3.93,-1.57,-1.45,-1.4,-1.21,-0.49,-0.19,-0.13,-0.02,0.15,0.34,0.44,0.65,1.03,1.25,1.35,1.42,1.47,1.59,1.69,1.7,1.77,1.85,1.89,1.98,2.03,2.12,2.27,2.36,2.38,2.51,2.52,2.54,2.58,2.6,2.74,2.83,3.04,3.17,3.24,3.27,3.33,3.45,3.6,3.74,3.94,4.14,4.24,4.36,4.48,4.53,4.57,4.66,4.8,4.83,4.86,4.94,5.19,5.46,5.71,5.75,5.78,5.83,5.89,6.27,6.29,6.35,6.43,6.48,6.53,6.66,6.9,7.18,7.26,7.36,7.45,7.7,7.97,8.2,8.41,8.66,9.13,9.4,9.52,9.79,10.09,10.49,10.88,11.12,11.35,11.79,12.56,13.03,14.44,15.31,17.39,18.88,19.89,21.35,24.8,26.68],"hist":[0,0,0,0,0,0,0,0,0,0,0,1,0,4,3,5,11,12,8,11,7,8,5,4,4,2,3,2,0,2,0,0,1,1,1,0,1,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]},{"label":"2:30-3:00","lo":150,"hi":180,"n":2278,"neg_pct":8.25,"even_pct":13.65,"median_fade":5.19,"median_first":83.42,"median_second":88.58,"fade_pctiles":[-10.83,-3.49,-2.42,-1.89,-1.36,-0.96,-0.6,-0.33,-0.1,0.16,0.32,0.47,0.59,0.75,0.89,1.04,1.17,1.32,1.5,1.65,1.79,1.91,2.04,2.16,2.27,2.35,2.47,2.59,2.73,2.83,2.94,3.03,3.17,3.28,3.39,3.48,3.6,3.69,3.79,3.88,3.97,4.07,4.21,4.32,4.42,4.57,4.67,4.78,4.95,5.05,5.19,5.37,5.45,5.57,5.71,5.88,6.0,6.09,6.21,6.34,6.47,6.66,6.83,6.95,7.13,7.27,7.49,7.68,7.88,8.11,8.37,8.56,8.71,8.83,9.05,9.31,9.53,9.79,9.97,10.25,10.51,10.83,11.09,11.42,11.65,12.0,12.34,12.74,13.23,13.6,14.0,14.53,15.22,15.88,16.61,17.28,18.56,19.76,22.08,26.15,42.86],"hist":[0,0,0,0,1,0,1,2,1,3,9,16,27,52,76,151,160,201,217,188,170,165,121,121,97,78,79,55,59,39,36,26,22,20,19,7,9,15,5,4,2,5,1,5,3,0,2,2,1,2,1,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]},{"label":"3:00-3:30","lo":180,"hi":210,"n":6968,"neg_pct":3.95,"even_pct":6.66,"median_fade":8.58,"median_first":93.75,"median_second":103.05,"fade_pctiles":[-12.91,-2.2,-1.04,-0.43,0.02,0.45,0.78,1.09,1.34,1.57,1.86,2.1,2.3,2.53,2.7,2.88,3.05,3.23,3.42,3.57,3.72,3.89,4.09,4.25,4.44,4.59,4.76,4.9,5.07,5.23,5.37,5.5,5.68,5.84,6.0,6.18,6.31,6.47,6.61,6.77,6.95,7.11,7.27,7.41,7.59,7.77,7.92,8.08,8.25,8.42,8.58,8.78,8.93,9.08,9.24,9.43,9.62,9.8,9.99,10.17,10.34,10.54,10.72,10.92,11.1,11.3,11.54,11.76,11.99,12.19,12.42,12.63,12.89,13.13,13.43,13.66,13.93,14.21,14.66,14.95,15.28,15.6,15.99,16.37,16.78,17.33,17.77,18.32,18.79,19.35,20.1,20.65,21.47,22.41,23.25,24.69,26.19,28.01,31.32,36.34,86.75],"hist":[0,0,1,0,0,1,3,1,0,4,11,12,45,70,127,187,277,357,408,413,451,436,437,413,389,375,322,313,262,199,204,173,135,134,101,110,76,77,63,53,44,42,32,22,23,21,15,13,17,15,12,10,12,5,4,6,5,5,5,4,1,0,0,1,8,2,1,0,0,1,0,0,1,0,1]},{"label":"3:30-4:00","lo":210,"hi":240,"n":8731,"neg_pct":2.15,"even_pct":3.81,"median_fade":12.16,"median_first":105.12,"median_second":119.08,"fade_pctiles":[-13.35,-1.59,-0.15,0.7,1.23,1.65,2.03,2.38,2.83,3.19,3.47,3.84,4.18,4.46,4.69,4.95,5.21,5.4,5.64,5.88,6.13,6.33,6.52,6.74,6.9,7.09,7.3,7.5,7.69,7.87,8.07,8.27,8.48,8.68,8.9,9.1,9.31,9.5,9.69,9.88,10.08,10.28,10.49,10.69,10.88,11.1,11.31,11.54,11.73,11.9,12.16,12.35,12.57,12.76,13.02,13.24,13.45,13.67,13.92,14.14,14.4,14.66,14.87,15.14,15.37,15.56,15.84,16.14,16.42,16.69,16.94,17.24,17.56,17.91,18.33,18.72,19.1,19.44,19.8,20.22,20.67,21.04,21.51,22.15,22.6,23.15,23.86,24.4,25.14,25.91,26.65,27.55,28.64,29.84,31.24,32.87,34.78,37.08,39.86,46.78,87.77],"hist":[0,1,0,0,1,0,3,3,4,8,11,20,26,37,74,118,215,220,255,325,376,444,449,418,441,443,420,391,397,351,360,324,252,225,234,223,155,170,139,135,114,112,88,77,71,63,51,55,56,40,46,23,40,31,24,12,21,14,12,7,12,8,6,3,12,8,3,8,8,1,3,3,4,3,24]},{"label":"4:00-4:30","lo":240,"hi":270,"n":5338,"neg_pct":1.41,"even_pct":1.35,"median_fade":17.32,"median_first":116.68,"median_second":137.5,"fade_pctiles":[-53.6,-1.17,1.01,2.25,3.06,4.01,4.61,5.17,5.7,6.07,6.5,6.86,7.28,7.7,8.0,8.29,8.64,8.88,9.22,9.54,9.8,10.05,10.42,10.68,10.94,11.15,11.44,11.8,11.98,12.3,12.55,12.8,13.04,13.27,13.45,13.72,13.97,14.23,14.49,14.72,14.96,15.19,15.45,15.68,15.91,16.12,16.41,16.59,16.82,17.09,17.32,17.58,17.83,18.05,18.25,18.58,18.84,19.14,19.45,19.75,20.04,20.39,20.69,20.99,21.29,21.51,21.78,22.11,22.38,22.6,22.97,23.32,23.76,24.16,24.44,24.8,25.08,25.51,26.02,26.43,26.84,27.3,27.75,28.2,28.84,29.55,30.16,30.84,31.74,32.69,33.49,34.39,35.54,36.78,38.4,40.34,42.32,44.64,50.31,56.8,106.67],"hist":[2,1,0,0,0,1,1,4,3,3,10,3,13,15,19,31,41,64,55,95,110,135,140,181,189,184,199,200,231,216,229,223,221,197,179,169,194,181,139,168,115,128,116,89,78,81,61,61,59,51,47,42,29,31,25,34,25,24,20,22,11,14,6,6,7,11,11,5,12,11,4,5,6,3,42]},{"label":"4:30-5:00","lo":270,"hi":300,"n":3781,"neg_pct":1.08,"even_pct":0.48,"median_fade":22.04,"median_first":127.87,"median_second":156.4,"fade_pctiles":[-31.58,-0.36,2.57,3.92,5.02,5.96,6.81,7.41,8.05,8.64,9.04,9.46,9.92,10.37,10.81,11.09,11.39,11.92,12.3,12.56,12.84,13.13,13.46,13.72,14.04,14.42,14.75,15.02,15.36,15.7,16.02,16.39,16.65,17.01,17.27,17.58,17.76,18.07,18.39,18.82,19.12,19.44,19.69,20.02,20.29,20.63,20.88,21.17,21.42,21.79,22.04,22.24,22.51,22.9,23.2,23.5,23.83,24.18,24.57,24.97,25.33,25.71,26.0,26.24,26.62,26.92,27.23,27.78,28.15,28.43,28.9,29.41,29.79,30.15,30.58,30.95,31.51,31.96,32.36,32.88,33.42,33.95,34.46,35.03,35.65,36.58,37.53,38.22,38.8,39.62,40.9,42.16,43.05,44.45,46.53,48.48,51.0,54.45,58.19,67.51,113.25],"hist":[5,0,0,0,0,0,1,0,3,1,4,10,3,4,10,8,10,29,27,36,40,45,65,72,87,96,97,125,124,117,112,115,144,104,129,134,120,138,116,102,110,123,90,98,90,93,81,79,70,68,55,42,48,56,41,27,33,40,26,28,13,21,15,22,13,14,13,12,8,14,9,13,5,6,72]},{"label":"5:00-6:00","lo":300,"hi":360,"n":3692,"neg_pct":0.54,"even_pct":0.35,"median_fade":26.79,"median_first":142.33,"median_second":181.7,"fade_pctiles":[-24.12,2.54,6.0,7.67,8.86,9.85,11.02,11.71,12.39,12.87,13.37,13.95,14.44,14.85,15.17,15.6,16.1,16.57,16.88,17.18,17.49,17.78,18.08,18.42,18.72,19.08,19.38,19.73,20.04,20.32,20.73,21.03,21.27,21.56,21.84,22.12,22.38,22.68,23.0,23.32,23.59,23.84,24.13,24.4,24.83,25.15,25.51,25.83,26.06,26.4,26.79,27.12,27.33,27.67,28.03,28.29,28.51,28.82,29.18,29.54,29.86,30.35,30.64,30.97,31.3,31.66,32.01,32.44,32.78,33.31,33.65,34.05,34.64,35.19,35.65,36.21,36.9,37.42,38.0,38.63,38.99,39.64,40.19,41.16,41.9,42.77,44.04,45.22,46.27,47.29,48.14,49.24,50.78,52.27,54.24,57.03,60.62,65.02,72.78,82.02,165.44],"hist":[1,0,0,1,1,0,0,1,0,3,1,2,5,4,1,5,8,8,7,13,13,21,27,36,32,32,56,65,71,80,89,99,120,115,115,108,133,130,138,100,124,104,122,126,111,100,107,97,87,64,79,48,69,75,61,42,51,35,30,26,45,31,40,38,26,24,22,25,17,14,12,12,8,11,168]}]};
+  var NS = "http://www.w3.org/2000/svg";
+  function el(tag, at, parent, txt) { var e = document.createElementNS(NS, tag); for (var k in at) e.setAttribute(k, at[k]); if (txt != null) e.textContent = txt; if (parent) parent.appendChild(e); return e; }
+  function band(b) { return b.label.replace("-", " to "); }
+  function hms(m) { var s = Math.round(m * 60), h = Math.floor(s / 3600), mm = Math.floor(s % 3600 / 60), ss = s % 60; return h + ":" + (mm < 10 ? "0" : "") + mm + ":" + (ss < 10 ? "0" : "") + ss; }
+  function pace(minPerKm) { var s = Math.round(minPerKm * 60); return Math.floor(s / 60) + ":" + (s % 60 < 10 ? "0" : "") + s % 60; }
+  function f1(v) { return (v >= 0 ? "+" : "−") + Math.abs(v).toFixed(1) + "%"; }
+
+  // ---- histogram ----
+  var box = document.getElementById("hist"), title = document.getElementById("hist-title"),
+      read = document.getElementById("hist-read"), seg = document.getElementById("hist-seg");
+  var groups = [{ label: "All", d: S.all, name: "All 31,912 finishers" }].concat(S.bands.map(function (b) { return { label: b.label.replace("-", "–"), d: b, name: band(b) + " finishers (" + b.n.toLocaleString("en-US") + ")" }; }));
+  var G = 0, cur = 30, svg, bars = [];
+  groups.forEach(function (g, i) {
+    var b = document.createElement("button"); b.type = "button"; b.textContent = g.label; b.setAttribute("aria-pressed", i === 0 ? "true" : "false");
+    b.addEventListener("click", function () { G = i; seg.querySelectorAll("button").forEach(function (o, j) { o.setAttribute("aria-pressed", j === i ? "true" : "false"); }); draw(); });
+    seg.appendChild(b);
+  });
+  function binLabel(i) { var lo = i - 15; return i === 0 ? "−15% or more faster" : i === 75 ? "60% or more slower" : (lo < 0 ? (lo === -1 ? "0 to 1% faster" : (-lo - 1) + " to " + (-lo) + "% faster") : lo + " to " + (lo + 1) + "% slower"); }
+  function show(i) {
+    cur = Math.max(0, Math.min(75, i)); var g = groups[G].d, n = g.hist[cur];
+    bars.forEach(function (r, j) { r.classList.toggle("on", j === cur); });
+    read.textContent = binLabel(cur) + ": " + n.toLocaleString("en-US") + " runners, " + (100 * n / g.n).toFixed(1) + "% of the band";
+  }
+  function draw() {
+    var g = groups[G].d, W = Math.max(300, box.clientWidth - 20), H = W < 560 ? 260 : 330, L = 40, R = 10, T = 26, B = 36;
+    var sh = g.hist.map(function (c) { return 100 * c / g.n; }), ym = Math.max.apply(null, sh);
+    var yt = ym > 8 ? 2 : 1, y1 = Math.ceil(ym / yt) * yt;
+    var bw = (W - L - R) / 76, X = function (v) { return L + (v + 15) * bw; }, Y = function (v) { return T + (1 - v / y1) * (H - T - B); };
+    box.innerHTML = ""; bars = [];
+    svg = el("svg", { viewBox: "0 0 " + W + " " + H, width: W, height: H, tabindex: 0, role: "img",
+      "aria-label": "Histogram of second-half slowdown for " + groups[G].name + ". Median " + f1(g.median_fade) + "; " + g.neg_pct.toFixed(1) + "% ran a negative split." }, box);
+    for (var v = 0; v <= y1 + 1e-9; v += yt) { el("line", { class: "grid", x1: L, x2: W - R, y1: Y(v), y2: Y(v) }, svg); el("text", { x: L - 6, y: Y(v) + 4, "text-anchor": "end" }, svg, v + "%"); }
+    [-10, 0, 10, 20, 30, 40, 50, 60].forEach(function (t) { el("text", { x: X(t), y: H - B + 18, "text-anchor": "middle" }, svg, (t > 0 ? "+" : t < 0 ? "−" : "") + Math.abs(t) + "%"); });
+    sh.forEach(function (v, i) {
+      var r = el("rect", { class: "b" + (i < 15 ? " neg" : ""), x: X(i - 15) + 0.5, y: Y(v), width: Math.max(1, bw - 1), height: Math.max(0, Y(0) - Y(v)) }, svg);
+      bars.push(r);
+    });
+    el("line", { class: "zero", x1: X(0), x2: X(0), y1: T - 6, y2: Y(0) }, svg);
+    var mx = X(Math.min(60, g.median_fade));
+    el("line", { class: "med", x1: mx, x2: mx, y1: T - 6, y2: Y(0) }, svg);
+    el("text", { class: "lab", x: mx + 6, y: T + 6 }, svg, "median " + f1(g.median_fade));
+    var nl = el("text", { class: "lab neg", x: L + 6, y: Y(y1 * 0.6) }, svg, g.neg_pct.toFixed(1) + "%"); el("tspan", { x: L + 6, dy: 17 }, nl, "faster");
+    svg.addEventListener("mousemove", function (e) { var r = svg.getBoundingClientRect(), x = (e.clientX - r.left) * W / r.width; show(Math.floor((x - L) / bw)); });
+    svg.addEventListener("keydown", function (e) { if (e.key === "ArrowRight" || e.key === "ArrowLeft") { e.preventDefault(); show(cur + (e.key === "ArrowRight" ? 1 : -1)); } });
+    svg.addEventListener("focus", function () { show(cur); });
+    title.textContent = groups[G].name + ": " + g.neg_pct.toFixed(1) + "% ran the second half faster, median fade " + f1(g.median_fade);
+  }
+  var rt; window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(draw, 120); });
+  draw();
+
+  // ---- your split ----
+  var yh = document.getElementById("y-half"), yf = document.getElementById("y-fin");
+  function parse(s) { var p = s.trim().split(/[:.\s]+/).map(Number); if (p.some(isNaN) || p.length < 2 || p.length > 3) return null; return p.length === 3 ? p[0] * 60 + p[1] + p[2] / 60 : p[0] * 60 + p[1]; }
+  function pctBelow(pc, x) { // share of runners with a smaller fade, from the 0..100 percentile table
+    if (x <= pc[0]) return 0; if (x >= pc[100]) return 100;
+    for (var i = 1; i <= 100; i++) if (pc[i] >= x) return i - 1 + (x - pc[i - 1]) / Math.max(1e-9, pc[i] - pc[i - 1]);
+    return 100;
+  }
+  function yours() {
+    var h = parse(yh.value), f = parse(yf.value), v = document.getElementById("y-verdict"), st = document.getElementById("y-strip"), tx = document.getElementById("y-text");
+    if (h == null || f == null || f <= h || h < 30) { v.textContent = " "; st.innerHTML = ""; tx.textContent = "Enter both times, with the finish later than the halfway split."; tx.className = "warn"; return; }
+    tx.className = "";
+    var sec = f - h, fade = (sec / h - 1) * 100, b = null;
+    S.bands.forEach(function (x) { if (f > x.lo && f <= x.hi) b = x; });
+    v.textContent = (fade < 0 ? "Negative split, " : "Second half ") + f1(fade);
+    v.className = "verdict" + (fade < 2 ? " ok" : "");
+    var rows = [["You", h, sec]]; if (b) rows.push(["Band median", b.median_first, b.median_second]);
+    var mx = Math.max.apply(null, rows.map(function (r) { return r[1] + r[2]; }));
+    st.innerHTML = rows.map(function (r) {
+      return '<div class="row"><span>' + r[0] + '</span><div class="track" style="width:' + (100 * (r[1] + r[2]) / mx).toFixed(1) + '%">' +
+        '<span class="h1" style="width:' + (100 * r[1] / (r[1] + r[2])).toFixed(1) + '%">' + pace(r[1] / 21.0975) + '/km</span>' +
+        '<span class="h2" style="flex:1">' + pace(r[2] / 21.0975) + '/km</span></div></div>';
+    }).join("");
+    var all = pctBelow(S.all.fade_pctiles, fade), t = "Second half " + hms(sec) + " against a first half of " + hms(h) + ". ";
+    t += "In the whole 2014 field, " + all.toFixed(0) + "% of runners faded less than you did";
+    if (b) { var inb = pctBelow(b.fade_pctiles, fade); t += "; among the " + b.n.toLocaleString("en-US") + " who finished " + band(b) + ", " + inb.toFixed(0) + "% did (their median fade was " + f1(b.median_fade) + ")."; }
+    else t += ". A finish outside 2:00 to 6:00 has no band to compare with.";
+    tx.textContent = t;
+  }
+  [yh, yf].forEach(function (e) { e.addEventListener("input", yours); });
+  yours();
+})();
+</script>
 </body>
 </html>

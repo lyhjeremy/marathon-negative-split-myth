@@ -13,6 +13,8 @@ Design and copy follow [these standards](https://github.com/lyhjeremy/lyhjeremy/
 - Fade tracks ability: a median 5.3% slowdown for sub-3-hour finishers against 21.7% for runners over 4 hours.
 - Women slowed slightly less than men, 13.4% against 14.8%.
 
+The [write-up](https://lyhjeremy.github.io/marathon-negative-split-myth/overview/#yours) lets you enter your own halfway split and finish time and see how your fade compares with the Boston runners in your finish band.
+
 ![Histogram of second-half slowdown for 31,912 Boston 2014 finishers, almost all to the right of even pace and peaking around a 12 to 15 percent slowdown](figures/01_slowdown_distribution.png)
 
 ## Method
@@ -29,6 +31,7 @@ Stack: Python, pandas, NumPy, matplotlib.
 pip install -r requirements.txt
 python fetch_data.py     # downloads 2014 Boston results to data/
 python analyze.py        # writes figures/ and tables/summary.csv
+python export_web.py     # writes tables/web_splits.json for the site's charts
 ```
 
 ## Repo layout
@@ -38,7 +41,9 @@ python analyze.py        # writes figures/ and tables/summary.csv
 | `fetch_data.py` | Downloads the results CSV into `data/` (git-ignored) |
 | `analyze.py` | Computes the splits, writes four figures and the summary table |
 | `figures/` | Slowdown histogram, pacing categories, slowdown by finish band, by gender |
+| `export_web.py` | Band histograms, percentiles and medians for the interactive charts, using the same `load()` as `analyze.py` |
 | `tables/summary.csv` | Headline numbers |
+| `tables/web_splits.json` | Chart data for the site (8 KB) |
 | `index.html`, `overview/` | The GitHub Pages site |
 | `writeup.md` | Short write-up |
 
