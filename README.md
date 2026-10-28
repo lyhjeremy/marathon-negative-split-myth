@@ -1,6 +1,6 @@
 # The Negative-Split Myth
 
-How many marathoners actually run the second half faster than the first? Across all 31,912 finishers of the 2014 Boston Marathon, 2.5% did.
+How many marathoners run the second half faster than the first? I counted every one of the 31,912 finishers of the 2014 Boston Marathon, and 2.5% did.
 
 [Live site](https://lyhjeremy.github.io/marathon-negative-split-myth/) · [Write-up](https://lyhjeremy.github.io/marathon-negative-split-myth/overview/)
 
@@ -19,7 +19,7 @@ Design and copy follow [these standards](https://github.com/lyhjeremy/lyhjeremy/
 
 Each runner's race is split at the half-marathon timing mat. First half is the half split; second half is official finish time minus the half split. The ratio second / first above 1 means the runner slowed. A ratio below 1 is a negative split, and 1.00 to 1.02 counts as even.
 
-The analysis is descriptive: shares and medians over the full field, then medians grouped by finish-time band (2:00 to 6:00 in half-hour steps, 5:00 to 6:00 as one band) and by gender. There is no sampling and no model, so the numbers are exact for this race.
+The analysis is descriptive: shares and medians over the full field, then medians grouped by finish-time band (2:00 to 6:00 in half-hour steps, 5:00 to 6:00 as one band) and by gender. Every finisher is counted and nothing is modeled, so the numbers are exact for this race.
 
 Stack: Python, pandas, NumPy, matplotlib.
 
@@ -48,7 +48,7 @@ Official 2014 Boston Marathon results from the public mirror [llimllib/bostonmar
 
 ## Limitations
 
-This is one race on one course. Boston drops early and puts its hills between miles 16 and 21, which makes an even split harder than on a flat course, and its qualified field is faster than a typical marathon's. The halfway mat is the only checkpoint used, and weather is not modeled. The pacing-categories chart (`figures/02_split_categories.png`) counts "even" as within 2% either side, so its negative-split bar reads 1.5% where the headline rule (ratio below 1) gives 2.5%.
+This is one race on one course. Boston drops early and puts its hills between miles 16 and 21, which makes an even split harder than on a flat course, and its qualified field is faster than a typical marathon's. The halfway mat is the only checkpoint used, and weather is not modeled. The pacing-categories chart (`figures/02_split_categories.png`) counts "even" as within 2% either side, so its negative-split bar reads 1.5%; the headline rule (ratio below 1) gives 2.5%.
 
 ## License
 
