@@ -10,7 +10,6 @@
 <meta property="og:description" content="The most repeated piece of marathon advice, measured against an entire Boston field. 803 of 31,912 finishers ran a negative split." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://lyhjeremy.github.io/marathon-negative-split-myth/overview/" />
-<link href="" rel="stylesheet" />
 <style>
   :root {
     --paper: #ECEBE6;
@@ -235,6 +234,19 @@
   .stop .eyebrow { color: var(--accent2); }
 
 
+  .ysheet { margin-top: 22px; overflow-x: auto; border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink); }
+  .ysheet table { min-width: 540px; width: 100%; font-family: var(--mono); font-size: 14px; border-collapse: collapse; background: transparent; }
+  .ysheet th { font: 600 11.5px/1.3 var(--sans); text-transform: uppercase; letter-spacing: .06em; text-align: left; border-bottom: 2px solid var(--ink); padding: 8px 10px; color: var(--ink); }
+  .ysheet td { padding: 8px 10px; border-bottom: 1px dotted var(--edge); color: var(--ink); }
+  .ysheet .num { text-align: right; }
+  .ysheet .bar { display: inline-block; height: 9px; background: var(--accent); vertical-align: middle; }
+  .ysheet .bar.b2 { background: var(--accent2); }
+  .ysheet tr.wall td { font-weight: 600; background: color-mix(in srgb, var(--accent) 10%, transparent); }
+  .ysheet tr.off td { color: var(--muted); }
+  .ysheet tr.off .bar { background: var(--edge); }
+  @media (max-width: 640px) { .ysheet table { min-width: 0; } .ysheet th:nth-child(4), .ysheet td:nth-child(4), .ysheet th:nth-child(6), .ysheet td:nth-child(6) { display: none; } .ysheet td, .ysheet th { padding: 7px 6px; } }
+  .ysheet-note { font-family: var(--sans); font-size: 14px; color: var(--muted); margin-top: 10px; }
+
   .chip { margin: 30px 0 0; max-width: 40rem; background: var(--card); border: 1px solid var(--rule); border-top: 3px dashed var(--edge); border-bottom: 3px dashed var(--edge); padding: 16px 18px 14px; font-family: var(--mono); font-size: 13.5px; line-height: 1.55; color: var(--ink); }
   .chip-head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; text-transform: uppercase; letter-spacing: .1em; font-size: 11.5px; color: var(--muted); border-bottom: 1px solid var(--rule); padding-bottom: 8px; margin-bottom: 6px; }
   .chip table { min-width: 0; font-family: var(--mono); font-size: 13.5px; }
@@ -294,7 +306,7 @@
   </header>
 
   <section class="hero">
-    <p class="kicker">31,912 finishers, one piece of advice</p>
+    <p class="kicker">31,912 finishers, one piece of advice · now with seven more Boston years</p>
     <h1>803 runners in a field of 31,912 ran the second half faster</h1>
 
     <p class="hero-sub">
@@ -306,6 +318,7 @@
 
     <div class="cta-row">
       <a class="btn btn-primary" href="#yours">Check your own split</a>
+      <a class="textlink" href="#years">Every Boston year since 2014</a>
       <a class="textlink" href="https://github.com/lyhjeremy/marathon-negative-split-myth">Code and data on GitHub</a>
     </div>
 
@@ -367,7 +380,7 @@
       <div class="chart" id="hist"></div>
       <p class="readout" id="hist-read" aria-live="polite">Hover the chart, or focus it and use the arrow keys, to read a bar.</p>
       <noscript>
-        <div class="plate"><img width="1600" height="919" src="../figures/01_slowdown_distribution.png" alt="Histogram of each runner's second-half slowdown. Nearly the whole distribution sits to the right of the zero line, peaking around a 12 to 15 percent slowdown, with a long tail past 40 percent." /></div>
+        <div class="plate"><img src="../figures/01_slowdown_distribution.png" alt="Histogram of each runner's second-half slowdown. Nearly the whole distribution sits to the right of the zero line, peaking around a 12 to 15 percent slowdown, with a long tail past 40 percent." /></div>
       </noscript>
       <figcaption>
         Each bar is one percentage point of second-half slowdown, as a share of the
@@ -456,11 +469,56 @@
     </div>
   </section>
 
+
+  <section class="stop stop--key" id="years">
+    <p class="eyebrow">October 2026 upgrade · every Boston year with splits</p>
+    <h2>2014 was one of the worst years to try it</h2>
+    <p>
+      The counts above are one race. The same rule (second half against first,
+      from the halfway mat) was run on every Boston year with public splits:
+      2014 to 2017 and 2021 to 2024. The share of negative splits ran from 2.4%
+      in 2024 to 10.8% in 2023, and the median fade from 5.8% to 14.0%. 2014
+      sits at the hard end of both: the second-lowest share and the biggest
+      median fade of the eight. The years go together, too: when the field
+      fades less, more runners manage a negative split.
+    </p>
+    <div class="ysheet">
+      <table>
+        <thead><tr><th>Year</th><th class="num">Finishers</th><th class="num">Negative split</th><th></th><th class="num">Median fade</th><th></th></tr></thead>
+        <tbody>
+          <tr><td>2024</td><td class="num">25,757</td><td class="num">2.4%</td><td><span class="bar" style="width:20px"></span></td><td class="num">+13.7%</td><td><span class="bar b2" style="width:88px"></span></td></tr>
+          <tr><td>2023</td><td class="num">26,674</td><td class="num">10.8%</td><td><span class="bar" style="width:90px"></span></td><td class="num">+5.8%</td><td><span class="bar b2" style="width:37px"></span></td></tr>
+          <tr><td>2022</td><td class="num">24,745</td><td class="num">6.9%</td><td><span class="bar" style="width:58px"></span></td><td class="num">+8.3%</td><td><span class="bar b2" style="width:53px"></span></td></tr>
+          <tr><td>2021</td><td class="num">15,291</td><td class="num">4.7%</td><td><span class="bar" style="width:39px"></span></td><td class="num">+11.7%</td><td><span class="bar b2" style="width:75px"></span></td></tr>
+          <tr><td>2017</td><td class="num">26,393</td><td class="num">3.1%</td><td><span class="bar" style="width:26px"></span></td><td class="num">+12.8%</td><td><span class="bar b2" style="width:82px"></span></td></tr>
+          <tr><td>2016</td><td class="num">26,613</td><td class="num">2.6%</td><td><span class="bar" style="width:21px"></span></td><td class="num">+12.1%</td><td><span class="bar b2" style="width:78px"></span></td></tr>
+          <tr><td>2015</td><td class="num">26,570</td><td class="num">7.7%</td><td><span class="bar" style="width:64px"></span></td><td class="num">+7.2%</td><td><span class="bar b2" style="width:47px"></span></td></tr>
+          <tr class="wall"><td>2014</td><td class="num">31,859</td><td class="num">2.5%</td><td><span class="bar" style="width:21px"></span></td><td class="num">+14.0%</td><td><span class="bar b2" style="width:90px"></span></td></tr>
+          <tr class="off"><td>2013 (halted)</td><td class="num">16,096</td><td class="num">6.0%</td><td><span class="bar" style="width:50px"></span></td><td class="num">+7.7%</td><td><span class="bar b2" style="width:49px"></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="ysheet-note">From <code>tables/years_splits.json</code>, written by <code>multiyear.py</code> from the multi-year table that the
+      companion repo builds. This table drops wheelchair and handcycle entrants by division; the 2014 headline above
+      (31,912) kept 53 wheelchair finishers, one of them a negative split, so the 2014 row has 31,859 runners and the same
+      2.5% and 14.0%. 2013 was stopped at about 4:09 on the race clock, so its finishers are the faster part of the field;
+      it is shown for completeness and left out of the comparison. 2018 and 2019 are missing because the public files for
+      those years carry no splits.</p>
+    <p>
+      The companion study now has a
+      <a href="https://lyhjeremy.github.io/marathon-pacing-decay/overview/#tool">live split tool</a>:
+      enter your splits as you pass each mat and it predicts your finish band,
+      your chance of hitting the wall and your pacing type, using a model
+      trained on these years and tested on 2024.
+    </p>
+  </section>
+
   <section class="stop stop--warn">
     <p class="eyebrow">Limitations: what this doesn't show</p>
     <h2>One race, one day, one course</h2>
     <p>
-      This is one edition of one marathon, and Boston's course works against even
+      The headline numbers are one edition of one marathon, and the per-year
+      table shows it was a hard one. Boston's course also works against even
       pacing. It drops for the first few miles and puts the Newton hills between
       miles 16 and 21. Some of the 14% belongs to the course, so a split from a
       flat race will look better against this field than it would at home.
@@ -473,7 +531,9 @@
     <p>
       The halfway split is the only checkpoint used. A runner who surged and
       faded within one half looks the same as one who ran it steadily. Weather on
-      the day is not modeled.
+      the day is not modeled. The spread between years (2.4% to 10.8% negative
+      splits) says the day matters a great deal; how much of that is weather,
+      this data can't say.
     </p>
   </section>
 
@@ -507,6 +567,7 @@
       <div class="spec"><dt>Data</dt><dd>Official 2014 Boston Marathon results, from the public <a href="https://github.com/llimllib/bostonmarathon">llimllib/bostonmarathon</a> mirror</dd></div>
       <div class="spec"><dt>Sample</dt><dd>31,912 finishers with a valid half-marathon split</dd></div>
       <div class="spec"><dt>Definition</dt><dd>First half is the half-marathon mat time; second half is finish minus half. Ratio is second over first. Negative split means a ratio below 1; even means 1.00 to 1.02</dd></div>
+      <div class="spec"><dt>More years</dt><dd>2015 to 2017 from a Kaggle mirror, 2021 to 2024 from <a href="https://github.com/williamsorg4/BostonMarathonTimeModel">williamsorg4/BostonMarathonTimeModel</a>, assembled by <code>build_dataset.py</code> in the companion repo; per-year counts in this repo's <code>multiyear.py</code></dd></div>
       <div class="spec"><dt>Stack</dt><dd>Python, pandas, NumPy, matplotlib; the charts here are plain SVG</dd></div>
       <div class="spec"><dt>Reproduce</dt><dd><code>pip install -r requirements.txt</code>, then <code>python fetch_data.py &amp;&amp; python analyze.py &amp;&amp; python export_web.py</code></dd></div>
       <div class="spec"><dt>Companion study</dt><dd><a href="https://lyhjeremy.github.io/marathon-pacing-decay/">Hitting the Wall</a> follows the same field 5 km at a time to find where the fade starts</dd></div>

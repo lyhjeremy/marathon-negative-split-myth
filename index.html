@@ -112,11 +112,22 @@
     </div>
   </section>
 
+  <section class="cols" id="years">
+    <p class="label">Other years</p>
+    <div>
+      <h2>2014 was a hard year to try it</h2>
+      <p>Run the same count on every Boston year with public splits and the share of negative splits goes from 2.4% (2024) to 10.8% (2023), while the median fade goes from 5.8% to 14.0%. 2014 had the second-lowest share and the biggest fade of the eight. The 2014 numbers above are unchanged; the 2013 race, stopped at about 4:09 on the race clock, is left out.</p>
+      <figure><ul class="fades" aria-label="Share of finishers with a negative split, by year"><li><span>2014</span><i style="width:23%"></i><b>2.5%</b></li><li><span>2015</span><i style="width:71%"></i><b>7.7%</b></li><li><span>2016</span><i style="width:24%"></i><b>2.6%</b></li><li><span>2017</span><i style="width:28%"></i><b>3.1%</b></li><li><span>2021</span><i style="width:44%"></i><b>4.7%</b></li><li><span>2022</span><i style="width:64%"></i><b>6.9%</b></li><li><span>2023</span><i style="width:100%"></i><b>10.8%</b></li><li><span>2024</span><i style="width:22%"></i><b>2.4%</b></li></ul>
+        <figcaption>Share of finishers whose second half was faster than their first, per year, wheelchair and handcycle entrants removed. From <code>tables/years_splits.json</code> (<code>multiyear.py</code>); the <a href="overview/#years">write-up</a> has the full table with median fade.</figcaption></figure>
+      <p>The companion study now has a <a href="https://lyhjeremy.github.io/marathon-pacing-decay/#tool">live split tool</a> that predicts your finish band, wall risk and pacing type as you enter splits, trained on these years and tested on 2024.</p>
+    </div>
+  </section>
+
   <section class="cols">
     <p class="label">Method and limits</p>
     <div>
       <p>Official 2014 Boston results from the public <a href="https://github.com/llimllib/bostonmarathon">llimllib/bostonmarathon</a> mirror, 31,912 finishers with a valid half-marathon split. First half is the halfway mat time; second half is finish time minus that. Python with pandas and matplotlib; <code>fetch_data.py</code> then <code>analyze.py</code> reproduce every number.</p>
-      <div class="note">One race on one course. Boston's early downhill and its hills between miles 16 and 21 make an even split harder than on a flat course, and its qualified field is faster than a typical marathon's. The halfway split is the only checkpoint used, and weather is not modeled.</div>
+      <div class="note">The headline is one race on one course. Boston's early downhill and its hills between miles 16 and 21 make an even split harder than on a flat course, and its qualified field is faster than a typical marathon's. The halfway split is the only checkpoint used, and weather is not modeled.</div>
       <p>The useful reading: almost nobody in this field started too slowly. <a href="overview/">The full write-up</a> has the split medians for every finish band and a tool that places your own split against the field.</p>
     </div>
   </section>
