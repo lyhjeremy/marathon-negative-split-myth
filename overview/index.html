@@ -301,6 +301,16 @@
   .strip .h1 { background: var(--accent2); }
   .strip .h2 { background: var(--accent); border-left: 2px solid var(--card); }
   @media (max-width: 640px) { .strip .row { grid-template-columns: 1fr; gap: 2px; } }
+
+  .slip { margin: 30px 0 0; max-width: 46rem; border-left: 4px solid var(--accent); background: var(--card); padding: 14px 18px 8px; }
+  .slip .slip-h { font: 600 12px/1.3 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 6px; }
+  .slip dl { margin: 0; }
+  .slip dl > div { display: grid; grid-template-columns: 7.5rem 1fr; gap: 12px; padding: 7px 0; border-top: 1px dotted var(--edge); }
+  .slip dl > div:first-child { border-top: 0; }
+  .slip dt { font: 600 12.5px/1.5 var(--mono); text-transform: uppercase; letter-spacing: .06em; color: var(--ink2); }
+  .slip dd { margin: 0; font: 400 15px/1.5 var(--sans); color: var(--ink); }
+  .slip .res dd { font-weight: 600; color: var(--accent); }
+  @media (max-width: 640px) { .slip { padding: 12px 12px 6px; } .slip dl > div { grid-template-columns: 1fr; gap: 2px; } }
 </style>
 </head>
 <body>
@@ -318,7 +328,8 @@
       Run the second half faster than the first: it is the most repeated pacing
       advice in marathoning. In the 2014 Boston Marathon, 2.5% of finishers did it.
       The median runner's second half was 14% slower than the first, and the
-      further back in the field, the bigger the fade.
+      further back in the field, the bigger the fade. On the seven other Boston
+      years with public splits, the share ran from 2.4% to 10.8%.
     </p>
 
     <div class="cta-row">
@@ -348,6 +359,18 @@
            the sub-3 group.</p>
       </div>
     </div>
+
+    <section class="slip" aria-labelledby="slip-h">
+      <h2 class="slip-h" id="slip-h">At a glance</h2>
+      <dl>
+        <div><dt>Question</dt><dd>How many marathoners run the second half faster than the first?</dd></div>
+        <div><dt>Data</dt><dd>2014 Boston Marathon, 31,912 finishers with a half-marathon split; seven more Boston years (2015 to 2017, 2021 to 2024) for comparison</dd></div>
+        <div><dt>Method</dt><dd>Second half (finish minus halfway mat) over first half; a ratio below 1 is a negative split</dd></div>
+        <div><dt>Check</dt><dd>The same rule on the other seven years: 2.4% to 10.8% negative splits, median fade 5.8% to 13.7%. 2014 has the second-lowest share and the largest fade</dd></div>
+        <div class="res"><dt>Result</dt><dd>803 negative splits (2.5%); median second half 14.0% slower; 5.3% for sub-3 finishers against 21.7% over 4 hours</dd></div>
+        <div><dt>Limitation</dt><dd>One course, with a downhill start and the Newton hills late. The halfway mat is the only checkpoint, and weather is not modeled</dd></div>
+      </dl>
+    </section>
   </section>
 </div>
 
@@ -385,7 +408,7 @@
       <div class="chart" id="hist"></div>
       <p class="readout" id="hist-read" aria-live="polite">Hover the chart, or focus it and use the arrow keys, to read a bar.</p>
       <noscript>
-        <div class="plate"><img src="../figures/01_slowdown_distribution.png" alt="Histogram of each runner's second-half slowdown. Nearly the whole distribution sits to the right of the zero line, peaking around a 12 to 15 percent slowdown, with a long tail past 40 percent." /></div>
+        <div class="plate"><img width="1600" height="919" src="../figures/01_slowdown_distribution.png" alt="Histogram of each runner's second-half slowdown. Nearly the whole distribution sits to the right of the zero line, peaking around a 12 to 15 percent slowdown, with a long tail past 40 percent." /></div>
       </noscript>
       <figcaption>
         Each bar is one percentage point of second-half slowdown, as a share of the

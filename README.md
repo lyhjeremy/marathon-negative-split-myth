@@ -1,6 +1,7 @@
 # The Negative-Split Myth
 
-How many marathoners run the second half faster than the first? I counted every one of the 31,912 finishers of the 2014 Boston Marathon, and 2.5% did.
+How many marathoners run the second half faster than the first?
+In the 2014 Boston Marathon, 803 of 31,912 finishers (2.5%) did, and the median runner's second half was 14.0% slower; on the seven other Boston years with public splits the share ran from 2.4% to 10.8%.
 
 [Live site](https://lyhjeremy.github.io/marathon-negative-split-myth/) · [Write-up](https://lyhjeremy.github.io/marathon-negative-split-myth/overview/)
 
